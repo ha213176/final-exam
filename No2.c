@@ -10,22 +10,14 @@ int main(int argc, char **argv){
     int i, j,I = 0, C = 0;
     int len = 0, cnt = 0;
     for(i = 1; i < argc-2; i++){
-        //printf("i = %d\n", i);
-        //printf("%s\n", argv[i]);
-        //printf("argc = %d\n", argc);
         if(strcmp(argv[i], "-i\0") == 0){
             I = 1;
             len = strlen(argv[argc-2]);
-            //printf("%s\n", argv[argc-2]);
-            //printf("len = %d\n", len);
             for(j = 0; j < len; j++){
                 if(argv[argc-2][j] >= 'A' && argv[argc-2][j] <= 'Z'){
-                    //printf("%c\n", argv[argc-2][j]);
                     argv[argc-2][j] += ('a' - 'A');
-                    //printf("%c\n", argv[argc-2][j]);
                 }
             }
-            //printf("     %s\n", argv[argc-2]);
         }
         else if(strcmp(argv[i], "-c\0") == 0){
             C = 1;
@@ -35,7 +27,6 @@ int main(int argc, char **argv){
             return 0;
         }
     }
-    //printf("%s\n", argv[argc-1]);
     FILE *fp = fopen(argv[argc-1], "r");
     if(fp == NULL){
         printf("No such file.\n");
@@ -50,18 +41,14 @@ int main(int argc, char **argv){
                     buf[i] += ('a' - 'A');
                 }
             }
-            //printf("     %s\n", buf);
         }
-        len = strlen(argv[argc-2]);
-        printf
-        if(strstr(buf, argv[argc-2], len) != NULL){
+        if(strstr(buf, argv[argc-2]) != NULL){
             if(C == 1){
                 cnt++;
             }
             else{
                 printf("%s\n", buf);
             }
-            //printf("ii\n");
         }
     }
     if(C == 1){
