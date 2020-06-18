@@ -17,16 +17,14 @@ int main(){
                 k = 1;
             }
         }
-        //fputs(buf[idx], fp);
         if(k == 1){
             idx++;
             k = 0;
         }
     }
-    fclose(fp);
-    fp = fopen("data", "r+");
+    rewind(fp);
     for(int i = 0; i < idx; i++){
-        fprintf(fp, "%s", buf[i]);
+        fputs(buf[i], fp);
     }
     fclose(fp);
     return 0;
